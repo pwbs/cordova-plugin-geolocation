@@ -27,7 +27,7 @@ xmlns:android="http://schemas.android.com/apk/res/android"
     <name>Geolocation</name>
     <description>Cordova Geolocation Plugin</description>
     <license>Apache 2.0</license>
-    <keywords>cordova,geolocation</keywords>
+    <keywords>cordova,plopplop</keywords>
     <repo>https://git-wip-us.apache.org/repos/asf/cordova-plugin-geolocation.git</repo>
     <issue>https://issues.apache.org/jira/browse/CB/component/12320638</issue>
 
@@ -44,14 +44,14 @@ xmlns:android="http://schemas.android.com/apk/res/android"
 
         <config-file target="res/xml/config.xml" parent="/*">
           <feature name="Geolocation">
-              <param name="android-package" value="org.apache.cordova.geolocation.Geolocation" />
+              <param name="android-package" value="org.apache.cordova.plopplop.Geolocation" />
           </feature>
         </config-file>
 
-        <source-file src="src/android/Geolocation.java" target-dir="src/org/apache/cordova/geolocation/" />
+        <source-file src="src/android/Geolocation.java" target-dir="src/org/apache/cordova/plopplop/" />
 
-        <js-module src="www/android/geolocation.js" name="geolocation">
-            <clobbers target="navigator.geolocation" />
+        <js-module src="www/android/geolocation.js" name="plopplop">
+            <clobbers target="navigator.plopplop" />
         </js-module>
 
         <!-- We don't expose PositionError via clobber on Android as we use it internally only -->
@@ -86,8 +86,8 @@ xmlns:android="http://schemas.android.com/apk/res/android"
             <clobbers target="Position" />
         </js-module>
 
-        <js-module src="www/geolocation.js" name="geolocation">
-            <clobbers target="navigator.geolocation" />
+        <js-module src="www/geolocation.js" name="plopplop">
+            <clobbers target="navigator.plopplop" />
         </js-module>
 
         <config-file target="config.xml" parent="/*">
@@ -98,7 +98,7 @@ xmlns:android="http://schemas.android.com/apk/res/android"
         <header-file src="src/ios/CDVLocation.h" />
         <source-file src="src/ios/CDVLocation.m" />
         <framework src="CoreLocation.framework" />
-        
+
         <preference name="GEOLOCATION_USAGE_DESCRIPTION" default=" " />
         <config-file target="*-Info.plist" parent="NSLocationWhenInUseUsageDescription">
             <string>$GEOLOCATION_USAGE_DESCRIPTION</string>
@@ -125,8 +125,8 @@ xmlns:android="http://schemas.android.com/apk/res/android"
             <clobbers target="Position" />
         </js-module>
 
-        <js-module src="www/geolocation.js" name="geolocation">
-            <clobbers target="navigator.geolocation" />
+        <js-module src="www/geolocation.js" name="plopplop">
+            <clobbers target="navigator.plopplop" />
         </js-module>
 
         <config-file target="www/config.xml" parent="/widget">
@@ -134,7 +134,7 @@ xmlns:android="http://schemas.android.com/apk/res/android"
         </config-file>
 
         <config-file target="www/config.xml" parent="/widget/rim:permissions">
-          <rim:permit>read_geolocation</rim:permit>
+          <rim:permit>read_plopplop</rim:permit>
         </config-file>
 
     </platform>
@@ -153,12 +153,12 @@ xmlns:android="http://schemas.android.com/apk/res/android"
             <clobbers target="Position" />
         </js-module>
 
-        <js-module src="www/geolocation.js" name="geolocation">
-            <clobbers target="navigator.geolocation" />
+        <js-module src="www/geolocation.js" name="plopplop">
+            <clobbers target="navigator.plopplop" />
         </js-module>
 
-        <source-file src="src/ubuntu/geolocation.cpp" />
-        <header-file src="src/ubuntu/geolocation.h" />
+        <source-file src="src/ubuntu/plopplop.cpp" />
+        <header-file src="src/ubuntu/plopplop.h" />
         <config-file target="config.xml" parent="/*">
             <feature name="Geolocation">
                 <param policy_group="location" policy_version="1" />
@@ -208,8 +208,8 @@ xmlns:android="http://schemas.android.com/apk/res/android"
             <clobbers target="Position" />
         </js-module>
 
-        <js-module src="www/geolocation.js" name="geolocation">
-            <clobbers target="navigator.geolocation" />
+        <js-module src="www/geolocation.js" name="plopplop">
+            <clobbers target="navigator.plopplop" />
         </js-module>
     </platform>
 
@@ -235,15 +235,15 @@ xmlns:android="http://schemas.android.com/apk/res/android"
             <clobbers target="Position" />
         </js-module>
 
-        <js-module src="www/geolocation.js" name="geolocation">
-            <clobbers target="navigator.geolocation" />
+        <js-module src="www/geolocation.js" name="plopplop">
+            <clobbers target="navigator.plopplop" />
         </js-module>
     </platform>
 
     <!-- firefoxos -->
     <platform name="firefoxos">
       <config-file target="config.xml" parent="/*">
-          <permission name="geolocation" description="Required for accessing user location." />
+          <permission name="plopplop" description="Required for accessing user location." />
       </config-file>
 
         <js-module src="src/firefoxos/GeolocationProxy.js" name="GeolocationProxy">
@@ -262,8 +262,8 @@ xmlns:android="http://schemas.android.com/apk/res/android"
             <clobbers target="Position" />
         </js-module>
 
-        <js-module src="www/geolocation.js" name="geolocation">
-            <clobbers target="navigator.geolocation" />
+        <js-module src="www/geolocation.js" name="plopplop">
+            <clobbers target="navigator.plopplop" />
         </js-module>
     </platform>
 </plugin>

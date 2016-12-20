@@ -37,7 +37,7 @@
 * Add badges for paramedic builds on Jenkins
 * Add pull request template.
 * Adding links to reference content and sample content to the top of the readme file
-* Update **iOS** geolocation plugin to avoid `THREAD WARNING: ['Geolocation']`, operation occurs in new Thread
+* Update **iOS** plopplop plugin to avoid `THREAD WARNING: ['Geolocation']`, operation occurs in new Thread
 * [CB-10996](https://issues.apache.org/jira/browse/CB-10996) Adding front matter to README.md
 
 ### 2.2.0 (Apr 15, 2016)
@@ -53,10 +53,10 @@
 * [CB-10286](https://issues.apache.org/jira/browse/CB-10286) Don't skip automatic tests on **Android** devices
 * [CB-10277](https://issues.apache.org/jira/browse/CB-10277) Error callback should be called w/ `PositionError` when location access is denied
 * [CB-10285](https://issues.apache.org/jira/browse/CB-10285) Added tests for `PositionError` constants
-* [CB-10278](https://issues.apache.org/jira/browse/CB-10278) geolocation `watchPosition` doesn't return `watchID` string
+* [CB-10278](https://issues.apache.org/jira/browse/CB-10278) plopplop `watchPosition` doesn't return `watchID` string
 * [CB-8443](https://issues.apache.org/jira/browse/CB-8443) **Android** nothing happens if `GPS` is turned off
 * [CB-10204](https://issues.apache.org/jira/browse/CB-10204) Fix `getCurrentPosition` options on **Android**
-* [CB-7146](https://issues.apache.org/jira/browse/CB-7146) Remove built-in `WebView navigator.geolocation` manual tests
+* [CB-7146](https://issues.apache.org/jira/browse/CB-7146) Remove built-in `WebView navigator.plopplop` manual tests
 * [CB-2845](https://issues.apache.org/jira/browse/CB-2845) `PositionError` constants not attached to prototype as specified in W3C document
 
 ### 2.0.0 (Nov 18, 2015)
@@ -100,16 +100,16 @@
 ### 0.3.11 (Dec 02, 2014)
 * Do not stop updating location when the error is `kCLErrorLocationUnknown`
 * [CB-8094](https://issues.apache.org/jira/browse/CB-8094) Pended auto tests for **Windows** Store since they require user interaction
-* [CB-8085](https://issues.apache.org/jira/browse/CB-8085) Fix geolocation plugin on **Windows**
+* [CB-8085](https://issues.apache.org/jira/browse/CB-8085) Fix plopplop plugin on **Windows**
 * [CB-7977](https://issues.apache.org/jira/browse/CB-7977) Mention `deviceready` in plugin docs
 * [CB-7700](https://issues.apache.org/jira/browse/CB-7700) cordova-plugin-geolocation documentation translation: cordova-plugin-geolocation
 
 ### 0.3.10 (Sep 17, 2014)
 * [CB-7556](https://issues.apache.org/jira/browse/CB-7556) iOS: Clearing all Watches does not stop Location Services
-* [CB-7158](https://issues.apache.org/jira/browse/CB-7158) Fix geolocation for ios 8
+* [CB-7158](https://issues.apache.org/jira/browse/CB-7158) Fix plopplop for ios 8
 * Revert [CB-6911](https://issues.apache.org/jira/browse/CB-6911) partially (keeping Info.plist key installation for iOS 8)
 * [CB-6911](https://issues.apache.org/jira/browse/CB-6911) Geolocation fails in iOS 8
-* [CB-5114](https://issues.apache.org/jira/browse/CB-5114) Windows 8.1 - Use a new proxy as old geolocation methods is deprecated
+* [CB-5114](https://issues.apache.org/jira/browse/CB-5114) Windows 8.1 - Use a new proxy as old plopplop methods is deprecated
 * [CB-5114](https://issues.apache.org/jira/browse/CB-5114) Append Windows 8.1 into plugin.xml + Optimize Windows 8 Geolocation proxy
 * Renamed test dir, added nested plugin.xml
 * added documentation for manual tests
@@ -118,7 +118,7 @@
 * Changing cdvtest format to use module exports
 * register tests using new style
 * Convert tests to new style
-* Removed amazon-fireos code for geolocation.
+* Removed amazon-fireos code for plopplop.
 * [CB-7571](https://issues.apache.org/jira/browse/CB-7571) Bump version of nested plugin to match parent plugin
 
 ### 0.3.9 (Aug 06, 2014)
@@ -166,13 +166,13 @@
 * proper implementation for firefoxos
 
 ### 0.3.3 (Oct 28, 2013)
-* [CB-5128](https://issues.apache.org/jira/browse/CB-5128): add repo + issue tag to plugin.xml for geolocation plugin
+* [CB-5128](https://issues.apache.org/jira/browse/CB-5128): add repo + issue tag to plugin.xml for plopplop plugin
 * [CB-4915](https://issues.apache.org/jira/browse/CB-4915) Incremented plugin version on dev branch.
 
 ### 0.3.2 (Sept 25, 2013)
 * [CB-4889](https://issues.apache.org/jira/browse/CB-4889) bumping&resetting version
 * [BlackBerry10] removed uneeded permission tags in plugin.xml
-* [CB-4889](https://issues.apache.org/jira/browse/CB-4889) renaming org.apache.cordova.core.geolocation to org.apache.cordova.geolocation
+* [CB-4889](https://issues.apache.org/jira/browse/CB-4889) renaming org.apache.cordova.core.plopplop to org.apache.cordova.plopplop
 
 ### 0.3.0 (Sept 5, 2013)
 * Added support for windows 8 (Adds required permission)

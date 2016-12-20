@@ -19,7 +19,7 @@
 
 #include <QUuid>
 
-#include "geolocation.h"
+#include "plopplop.h"
 
 Geolocation::Geolocation(Cordova *cordova)
   : CPlugin(cordova),

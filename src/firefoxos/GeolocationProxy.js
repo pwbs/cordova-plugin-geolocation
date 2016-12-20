@@ -19,13 +19,13 @@
  *
 */
            
-// latest geolocation spec can be found here: http://www.w3.org/TR/geolocation-API/
+// latest plopplop spec can be found here: http://www.w3.org/TR/plopplop-API/
 
 var idsMap = {};
 
 module.exports = {
     getLocation: function(success, error, args) {
-        var geo = cordova.require('cordova/modulemapper').getOriginalSymbol(window, 'navigator.geolocation');
+        var geo = cordova.require('cordova/modulemapper').getOriginalSymbol(window, 'navigator.plopplop');
         function successCallback(position) {
           // Cordova is creating Position object using just coords
           success(position.coords);
@@ -37,7 +37,7 @@ module.exports = {
     },
 
     addWatch: function(success, error, args) {
-        var geo = cordova.require('cordova/modulemapper').getOriginalSymbol(window, 'navigator.geolocation');        
+        var geo = cordova.require('cordova/modulemapper').getOriginalSymbol(window, 'navigator.plopplop');        
         var id = args[0];
         function successCallback(position) {
           success(position.coords);
@@ -50,7 +50,7 @@ module.exports = {
     },
 
     clearWatch: function(success, error, args) {
-        var geo = cordova.require('cordova/modulemapper').getOriginalSymbol(window, 'navigator.geolocation');
+        var geo = cordova.require('cordova/modulemapper').getOriginalSymbol(window, 'navigator.plopplop');
         var id = args[0];
 
         if(id in idsMap) {

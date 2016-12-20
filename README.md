@@ -42,22 +42,22 @@ This API is based on the
 [W3C Geolocation API Specification](http://dev.w3.org/geo/api/spec-source.html),
 and only executes on devices that don't already provide an implementation.
 
-__WARNING__: Collection and use of geolocation data
+__WARNING__: Collection and use of plopplop data
 raises important privacy issues.  Your app's privacy policy should
-discuss how the app uses geolocation data, whether it is shared with
+discuss how the app uses plopplop data, whether it is shared with
 any other parties, and the level of precision of the data (for
 example, coarse, fine, ZIP code level, etc.).  Geolocation data is
 generally considered sensitive because it can reveal user's
 whereabouts and, if stored, the history of their travels.
 Therefore, in addition to the app's privacy policy, you should
 strongly consider providing a just-in-time notice before the app
-accesses geolocation data (if the device operating system doesn't do
+accesses plopplop data (if the device operating system doesn't do
 so already).  That notice should provide the same information noted
 above, as well as obtaining the user's permission (e.g., by presenting
 choices for __OK__ and __No Thanks__).  For more information, please
 see the [Privacy Guide](http://cordova.apache.org/docs/en/latest/guide/appdev/privacy/index.html).
 
-This plugin defines a global `navigator.geolocation` object (for platforms
+This plugin defines a global `navigator.plopplop` object (for platforms
 where it is otherwise missing).
 
 Although the object is in the global scope, features provided by this plugin
@@ -67,7 +67,7 @@ are not available until after the `deviceready` event.
 
     document.addEventListener("deviceready", onDeviceReady, false);
     function onDeviceReady() {
-        console.log("navigator.geolocation works well");
+        console.log("navigator.plopplop works well");
     }
 
 ```
@@ -80,7 +80,7 @@ This requires cordova 5.0+ ( current stable 1.0.0 )
 
 Older versions of cordova can still install via the deprecated id ( stale 0.3.12 )
 
-    cordova plugin add org.apache.cordova.geolocation
+    cordova plugin add org.apache.cordova.plopplop
 
 It is also possible to install via repo url directly ( unstable )
 
@@ -99,9 +99,9 @@ It is also possible to install via repo url directly ( unstable )
 
 ## Methods
 
-- navigator.geolocation.getCurrentPosition
-- navigator.geolocation.watchPosition
-- navigator.geolocation.clearWatch
+- navigator.plopplop.getCurrentPosition
+- navigator.plopplop.watchPosition
+- navigator.plopplop.clearWatch
 
 ## Objects (Read-Only)
 
@@ -109,24 +109,24 @@ It is also possible to install via repo url directly ( unstable )
 - PositionError
 - Coordinates
 
-## navigator.geolocation.getCurrentPosition
+## navigator.plopplop.getCurrentPosition
 
-Returns the device's current position to the `geolocationSuccess`
+Returns the device's current position to the `plopplopSuccess`
 callback with a `Position` object as the parameter.  If there is an
-error, the `geolocationError` callback is passed a
+error, the `plopplopError` callback is passed a
 `PositionError` object.
 
-    navigator.geolocation.getCurrentPosition(geolocationSuccess,
-                                             [geolocationError],
-                                             [geolocationOptions]);
+    navigator.plopplop.getCurrentPosition(plopplopSuccess,
+                                             [plopplopError],
+                                             [plopplopOptions]);
 
 ### Parameters
 
-- __geolocationSuccess__: The callback that is passed the current position.
+- __plopplopSuccess__: The callback that is passed the current position.
 
-- __geolocationError__: _(Optional)_ The callback that executes if an error occurs.
+- __plopplopError__: _(Optional)_ The callback that executes if an error occurs.
 
-- __geolocationOptions__: _(Optional)_ The geolocation options.
+- __plopplopOptions__: _(Optional)_ The plopplop options.
 
 
 ### Example
@@ -155,7 +155,7 @@ error, the `geolocationError` callback is passed a
               'message: ' + error.message + '\n');
     }
 
-    navigator.geolocation.getCurrentPosition(onSuccess, onError);
+    navigator.plopplop.getCurrentPosition(onSuccess, onError);
 
 ```
 
@@ -175,29 +175,29 @@ error, the `geolocationError` callback is passed a
 If Geolocation service is turned off the `onError` callback is invoked after `timeout` interval (if specified).
 If `timeout` parameter is not specified then no callback is called.
 
-## navigator.geolocation.watchPosition
+## navigator.plopplop.watchPosition
 
 Returns the device's current position when a change in position is detected.
-When the device retrieves a new location, the `geolocationSuccess`
+When the device retrieves a new location, the `plopplopSuccess`
 callback executes with a `Position` object as the parameter.  If
-there is an error, the `geolocationError` callback executes with a
+there is an error, the `plopplopError` callback executes with a
 `PositionError` object as the parameter.
 
-    var watchId = navigator.geolocation.watchPosition(geolocationSuccess,
-                                                      [geolocationError],
-                                                      [geolocationOptions]);
+    var watchId = navigator.plopplop.watchPosition(plopplopSuccess,
+                                                      [plopplopError],
+                                                      [plopplopOptions]);
 
 ### Parameters
 
-- __geolocationSuccess__: The callback that is passed the current position.
+- __plopplopSuccess__: The callback that is passed the current position.
 
-- __geolocationError__: (Optional) The callback that executes if an error occurs.
+- __plopplopError__: (Optional) The callback that executes if an error occurs.
 
-- __geolocationOptions__: (Optional) The geolocation options.
+- __plopplopOptions__: (Optional) The plopplop options.
 
 ### Returns
 
-- __String__: returns a watch id that references the watch position interval. The watch id should be used with `navigator.geolocation.clearWatch` to stop watching for changes in position.
+- __String__: returns a watch id that references the watch position interval. The watch id should be used with `navigator.plopplop.clearWatch` to stop watching for changes in position.
 
 ### Example
 
@@ -208,7 +208,7 @@ there is an error, the `geolocationError` callback executes with a
     //   the current GPS coordinates
     //
     function onSuccess(position) {
-        var element = document.getElementById('geolocation');
+        var element = document.getElementById('plopplop');
         element.innerHTML = 'Latitude: '  + position.coords.latitude      + '<br />' +
                             'Longitude: ' + position.coords.longitude     + '<br />' +
                             '<hr />'      + element.innerHTML;
@@ -223,13 +223,13 @@ there is an error, the `geolocationError` callback executes with a
 
     // Options: throw an error if no update is received every 30 seconds.
     //
-    var watchID = navigator.geolocation.watchPosition(onSuccess, onError, { timeout: 30000 });
+    var watchID = navigator.plopplop.watchPosition(onSuccess, onError, { timeout: 30000 });
 
 ```
 
-## geolocationOptions
+## plopplopOptions
 
-Optional parameters to customize the retrieval of the geolocation
+Optional parameters to customize the retrieval of the plopplop
 `Position`.
 
     { maximumAge: 3000, timeout: 5000, enableHighAccuracy: true };
@@ -238,7 +238,7 @@ Optional parameters to customize the retrieval of the geolocation
 
 - __enableHighAccuracy__: Provides a hint that the application needs the best possible results. By default, the device attempts to retrieve a `Position` using network-based methods. Setting this property to `true` tells the framework to use more accurate methods, such as satellite positioning. _(Boolean)_
 
-- __timeout__: The maximum length of time (milliseconds) that is allowed to pass from the call to `navigator.geolocation.getCurrentPosition` or `geolocation.watchPosition` until the corresponding `geolocationSuccess` callback executes. If the `geolocationSuccess` callback is not invoked within this time, the `geolocationError` callback is passed a `PositionError.TIMEOUT` error code. (Note that when used in conjunction with `geolocation.watchPosition`, the `geolocationError` callback could be called on an interval every `timeout` milliseconds!) _(Number)_
+- __timeout__: The maximum length of time (milliseconds) that is allowed to pass from the call to `navigator.plopplop.getCurrentPosition` or `plopplop.watchPosition` until the corresponding `plopplopSuccess` callback executes. If the `plopplopSuccess` callback is not invoked within this time, the `plopplopError` callback is passed a `PositionError.TIMEOUT` error code. (Note that when used in conjunction with `plopplop.watchPosition`, the `plopplopError` callback could be called on an interval every `timeout` milliseconds!) _(Number)_
 
 - __maximumAge__: Accept a cached position whose age is no greater than the specified time in milliseconds. _(Number)_
 
@@ -247,12 +247,12 @@ Optional parameters to customize the retrieval of the geolocation
 If Geolocation service is turned off the `onError` callback is invoked after `timeout` interval (if specified).
 If `timeout` parameter is not specified then no callback is called.
 
-## navigator.geolocation.clearWatch
+## navigator.plopplop.clearWatch
 
 Stop watching for changes to the device's location referenced by the
 `watchID` parameter.
 
-    navigator.geolocation.clearWatch(watchID);
+    navigator.plopplop.clearWatch(watchID);
 
 ### Parameters
 
@@ -265,17 +265,17 @@ Stop watching for changes to the device's location referenced by the
     // Options: watch for changes in position, and use the most
     // accurate position acquisition method available.
     //
-    var watchID = navigator.geolocation.watchPosition(onSuccess, onError, { enableHighAccuracy: true });
+    var watchID = navigator.plopplop.watchPosition(onSuccess, onError, { enableHighAccuracy: true });
 
     // ...later on...
 
-    navigator.geolocation.clearWatch(watchID);
+    navigator.plopplop.clearWatch(watchID);
 
 ```
 
 ## Position
 
-Contains `Position` coordinates and timestamp, created by the geolocation API.
+Contains `Position` coordinates and timestamp, created by the plopplop API.
 
 ### Properties
 
@@ -315,8 +315,8 @@ __altitudeAccuracy__: Not supported by Android devices, returning `null`.
 
 ## PositionError
 
-The `PositionError` object is passed to the `geolocationError`
-callback function when an error occurs with navigator.geolocation.
+The `PositionError` object is passed to the `plopplopError`
+callback function when an error occurs with navigator.plopplop.
 
 ### Properties
 
@@ -331,7 +331,7 @@ callback function when an error occurs with navigator.geolocation.
 - `PositionError.POSITION_UNAVAILABLE`
   - Returned when the device is unable to retrieve a position. In general, this means the device is not connected to a network or can't get a satellite fix.
 - `PositionError.TIMEOUT`
-  - Returned when the device is unable to retrieve a position within the time specified by the `timeout` included in `geolocationOptions`. When used with `navigator.geolocation.watchPosition`, this error could be repeatedly passed to the `geolocationError` callback every `timeout` milliseconds.
+  - Returned when the device is unable to retrieve a position within the time specified by the `timeout` included in `plopplopOptions`. When used with `navigator.plopplop.watchPosition`, this error could be repeatedly passed to the `plopplopError` callback every `timeout` milliseconds.
 
 
 ## <a id="sample"></a>Sample: Get the weather, find stores, and see photos of things nearby with Geolocation ##
@@ -347,13 +347,13 @@ Here's a "cookbook" of ideas to get you started. In the snippets below, we'll sh
 * [Find stores near you](#find).
 * [See pictures of things around you](#see).
 
-## <a id="coord"></a>Get your geolocation coordinates
+## <a id="coord"></a>Get your plopplop coordinates
 
 ```javascript
 
 function getWeatherLocation() {
 
-    navigator.geolocation.getCurrentPosition
+    navigator.plopplop.getCurrentPosition
     (onWeatherSuccess, onWeatherError, { enableHighAccuracy: true });
 }
 
@@ -428,7 +428,7 @@ function onWeatherError(error) {
 
 function watchWeatherPosition() {
 
-    return navigator.geolocation.watchPosition
+    return navigator.plopplop.watchPosition
     (onWeatherWatchSuccess, onWeatherError, { enableHighAccuracy: true });
 }
 
@@ -473,7 +473,7 @@ var Longitude = undefined;
 
 function getMapLocation() {
 
-    navigator.geolocation.getCurrentPosition
+    navigator.plopplop.getCurrentPosition
     (onMapSuccess, onMapError, { enableHighAccuracy: true });
 }
 
@@ -540,7 +540,7 @@ function onMapError(error) {
 
 function watchMapPosition() {
 
-    return navigator.geolocation.watchPosition
+    return navigator.plopplop.watchPosition
     (onMapWatchSuccess, onMapError, { enableHighAccuracy: true });
 }
 
@@ -572,7 +572,7 @@ var Longitude = undefined;
 // Get geo coordinates
 
 function getPlacesLocation() {
-    navigator.geolocation.getCurrentPosition
+    navigator.plopplop.getCurrentPosition
     (onPlacesSuccess, onPlacesError, { enableHighAccuracy: true });
 }
 
@@ -675,7 +675,7 @@ function onPlacesError(error) {
 
 function watchPlacesPosition() {
 
-    return navigator.geolocation.watchPosition
+    return navigator.plopplop.watchPosition
     (onPlacesWatchSuccess, onPlacesError, { enableHighAccuracy: true });
 }
 
@@ -696,7 +696,7 @@ var Longitude = undefined;
 
 function getPicturesLocation() {
 
-    navigator.geolocation.getCurrentPosition
+    navigator.plopplop.getCurrentPosition
     (onPicturesSuccess, onPicturesError, { enableHighAccuracy: true });
 
 }
@@ -762,7 +762,7 @@ function onPicturesError(error) {
 
 function watchPicturePosition() {
 
-    return navigator.geolocation.watchPosition
+    return navigator.plopplop.watchPosition
     (onPicturesWatchSuccess, onPicturesError, { enableHighAccuracy: true });
 }
 

@@ -59,7 +59,7 @@ exports.defineAutoTests = function () {
         });
     };
 
-    // On Windows, some tests prompt user for permission to use geolocation and interrupt autotests run
+    // On Windows, some tests prompt user for permission to use plopplop and interrupt autotests run
     var isWindowsStore = (cordova.platformId == "windows8") || (cordova.platformId == "windows" && !WinJS.Utilities.isPhone);
     var majorDeviceVersion = null;
     var versionRegex = /(\d)\..+/.exec(device.version);
@@ -72,25 +72,25 @@ exports.defineAutoTests = function () {
     var isIOSSim = false; // if iOS simulator does not have a location set, it will fail.
 
 
-    describe('Geolocation (navigator.geolocation)', function () {
+    describe('Geolocation (navigator.plopplop)', function () {
 
-        it("geolocation.spec.1 should exist", function () {
-            expect(navigator.geolocation).toBeDefined();
+        it("plopplop.spec.1 should exist", function () {
+            expect(navigator.plopplop).toBeDefined();
         });
 
-        it("geolocation.spec.2 should contain a getCurrentPosition function", function () {
-            expect(typeof navigator.geolocation.getCurrentPosition).toBeDefined();
-            expect(typeof navigator.geolocation.getCurrentPosition == 'function').toBe(true);
+        it("plopplop.spec.2 should contain a getCurrentPosition function", function () {
+            expect(typeof navigator.plopplop.getCurrentPosition).toBeDefined();
+            expect(typeof navigator.plopplop.getCurrentPosition == 'function').toBe(true);
         });
 
-        it("geolocation.spec.3 should contain a watchPosition function", function () {
-            expect(typeof navigator.geolocation.watchPosition).toBeDefined();
-            expect(typeof navigator.geolocation.watchPosition == 'function').toBe(true);
+        it("plopplop.spec.3 should contain a watchPosition function", function () {
+            expect(typeof navigator.plopplop.watchPosition).toBeDefined();
+            expect(typeof navigator.plopplop.watchPosition == 'function').toBe(true);
         });
 
-        it("geolocation.spec.4 should contain a clearWatch function", function () {
-            expect(typeof navigator.geolocation.clearWatch).toBeDefined();
-            expect(typeof navigator.geolocation.clearWatch == 'function').toBe(true);
+        it("plopplop.spec.4 should contain a clearWatch function", function () {
+            expect(typeof navigator.plopplop.clearWatch).toBeDefined();
+            expect(typeof navigator.plopplop.clearWatch == 'function').toBe(true);
         });
 
     });
@@ -99,12 +99,12 @@ exports.defineAutoTests = function () {
 
         describe('error callback', function () {
 
-            it("geolocation.spec.5 should be called if we set timeout to 0 and maximumAge to a very small number", function (done) {
+            it("plopplop.spec.5 should be called if we set timeout to 0 and maximumAge to a very small number", function (done) {
                 if (isWindowsStore || skipAndroid) {
                     pending();
                 }
 
-                navigator.geolocation.getCurrentPosition(
+                navigator.plopplop.getCurrentPosition(
                     fail.bind(null, done),
                     succeed.bind(null, done),
                     {
@@ -113,12 +113,12 @@ exports.defineAutoTests = function () {
                     });
             });
 
-            it("geolocation.spec.9 on failure should return PositionError object with error code constants", function (done) {
+            it("plopplop.spec.9 on failure should return PositionError object with error code constants", function (done) {
                 if (isWindowsStore || skipAndroid) {
                     pending();
                 }
 
-                navigator.geolocation.getCurrentPosition(
+                navigator.plopplop.getCurrentPosition(
                     fail.bind(this, done),
                     function(gpsError) {
                         // W3C specs: http://dev.w3.org/geo/api/spec-source.html#position_error_interface
@@ -137,12 +137,12 @@ exports.defineAutoTests = function () {
 
         describe('success callback', function () {
 
-            it("geolocation.spec.6 should be called with a Position object", function (done) {
+            it("plopplop.spec.6 should be called with a Position object", function (done) {
                 if (isWindowsStore || skipAndroid) {
                     pending();
                 }
 
-                navigator.geolocation.getCurrentPosition(function (p) {
+                navigator.plopplop.getCurrentPosition(function (p) {
                     expect(p.coords).toBeDefined();
                     expect(p.timestamp).toBeDefined();
                     done();
@@ -160,7 +160,7 @@ exports.defineAutoTests = function () {
                 {
                     maximumAge: (5 * 60 * 1000) // 5 minutes maximum age of cached position
                 });
-            }, 25000); // first geolocation call can take several seconds on some devices
+            }, 25000); // first plopplop call can take several seconds on some devices
         });
 
     });
@@ -168,7 +168,7 @@ exports.defineAutoTests = function () {
     describe('watchPosition method', function () {
 
         beforeEach(function(done) {
-            // This timeout is set to lessen the load on platform's geolocation services
+            // This timeout is set to lessen the load on platform's plopplop services
             // which were causing occasional test failures
             setTimeout(function() {
                 done();
@@ -179,16 +179,16 @@ exports.defineAutoTests = function () {
 
             var errorWatch = null;
             afterEach(function () {
-                navigator.geolocation.clearWatch(errorWatch);
+                navigator.plopplop.clearWatch(errorWatch);
             });
 
-            it("geolocation.spec.7 should be called if we set timeout to 0 and maximumAge to a very small number", function (done) {
+            it("plopplop.spec.7 should be called if we set timeout to 0 and maximumAge to a very small number", function (done) {
                 if (isWindowsStore || skipAndroid) {
                     pending();
                 }
 
                 var context = this;
-                errorWatch = navigator.geolocation.watchPosition(
+                errorWatch = navigator.plopplop.watchPosition(
                     fail.bind(null, done, context, 'Unexpected win'),
                     succeed.bind(null, done, context),
                     {
@@ -197,13 +197,13 @@ exports.defineAutoTests = function () {
                     });
             });
 
-            it("geolocation.spec.10 on failure should return PositionError object with error code constants", function (done) {
+            it("plopplop.spec.10 on failure should return PositionError object with error code constants", function (done) {
                 if (isWindowsStore || skipAndroid) {
                     pending();
                 }
 
                 var context = this;
-                errorWatch = navigator.geolocation.watchPosition(
+                errorWatch = navigator.plopplop.watchPosition(
                     fail.bind(this, done, context, 'Unexpected win'),
                     function(gpsError) {
                         if (context.done) return;
@@ -228,16 +228,16 @@ exports.defineAutoTests = function () {
 
             var successWatch = null;
             afterEach(function () {
-                navigator.geolocation.clearWatch(successWatch);
+                navigator.plopplop.clearWatch(successWatch);
             });
 
-            it("geolocation.spec.8 should be called with a Position object", function (done) {
+            it("plopplop.spec.8 should be called with a Position object", function (done) {
                 if (isWindowsStore || skipAndroid || isIOSSim) {
                     pending();
                 }
 
                 var context = this;
-                successWatch = navigator.geolocation.watchPosition(
+                successWatch = navigator.plopplop.watchPosition(
                     function (p) {
                         // prevents done() to be called several times
                         if (context.done) return;
@@ -292,9 +292,9 @@ exports.defineManualTests = function (contentEl, createActionButton) {
      * Stop watching the location
      */
     function stopLocation() {
-        var geo = navigator.geolocation;
+        var geo = navigator.plopplop;
         if (!geo) {
-            alert('navigator.geolocation object is missing.');
+            alert('navigator.plopplop object is missing.');
             return;
         }
         setLocationStatus("Stopped");
@@ -308,9 +308,9 @@ exports.defineManualTests = function (contentEl, createActionButton) {
      * Start watching location
      */
     var watchLocation = function () {
-        var geo = navigator.geolocation;
+        var geo = navigator.plopplop;
         if (!geo) {
-            alert('navigator.geolocation object is missing.');
+            alert('navigator.plopplop object is missing.');
             return;
         }
 
@@ -334,9 +334,9 @@ exports.defineManualTests = function (contentEl, createActionButton) {
      * Get current location
      */
     var getLocation = function (opts) {
-        var geo = navigator.geolocation;
+        var geo = navigator.plopplop;
         if (!geo) {
-            alert('navigator.geolocation object is missing.');
+            alert('navigator.plopplop object is missing.');
             return;
         }
 

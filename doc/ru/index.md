@@ -45,9 +45,9 @@
 
 ## Методы
 
-*   navigator.geolocation.getCurrentPosition
-*   navigator.geolocation.watchPosition
-*   navigator.geolocation.clearWatch
+*   navigator.plopplop.getCurrentPosition
+*   navigator.plopplop.watchPosition
+*   navigator.plopplop.clearWatch
 
 ## Объекты (только для чтения)
 
@@ -55,20 +55,20 @@
 *   PositionError
 *   Coordinates
 
-## navigator.geolocation.getCurrentPosition
+## navigator.plopplop.getCurrentPosition
 
-Возвращает текущее положение устройства для `geolocationSuccess` обратного вызова с `Position` объект в качестве параметра. Если есть ошибка, `geolocationError` обратного вызова передается `PositionError` объект.
+Возвращает текущее положение устройства для `plopplopSuccess` обратного вызова с `Position` объект в качестве параметра. Если есть ошибка, `plopplopError` обратного вызова передается `PositionError` объект.
 
-    navigator.geolocation.getCurrentPosition (geolocationSuccess, [geolocationError], [geolocationOptions]);
+    navigator.plopplop.getCurrentPosition (plopplopSuccess, [plopplopError], [plopplopOptions]);
     
 
 ### Параметры
 
-*   **geolocationSuccess**: обратный вызов, который передается в текущей позиции.
+*   **plopplopSuccess**: обратный вызов, который передается в текущей позиции.
 
-*   **geolocationError**: *(необязательно)* обратного вызова, который выполняется при возникновении ошибки.
+*   **plopplopError**: *(необязательно)* обратного вызова, который выполняется при возникновении ошибки.
 
-*   **geolocationOptions**: *(необязательно)* параметры геопозиционирования.
+*   **plopplopOptions**: *(необязательно)* параметры геопозиционирования.
 
 ### Пример
 
@@ -76,39 +76,39 @@
     
     onError обратного вызова получает объект PositionError / / функция onError(error) {alert (' код: ' + error.code + «\n» + ' сообщение: ' + error.message + «\n»);}
     
-    navigator.geolocation.getCurrentPosition (onSuccess, onError);
+    navigator.plopplop.getCurrentPosition (onSuccess, onError);
     
 
-## navigator.geolocation.watchPosition
+## navigator.plopplop.watchPosition
 
-Возвращает текущее положение устройства при обнаружении изменения в позиции. Когда устройство получает новое место, `geolocationSuccess` обратного вызова выполняется с `Position` объект в качестве параметра. Если есть ошибка, `geolocationError` обратного вызова выполняется с `PositionError` объект в качестве параметра.
+Возвращает текущее положение устройства при обнаружении изменения в позиции. Когда устройство получает новое место, `plopplopSuccess` обратного вызова выполняется с `Position` объект в качестве параметра. Если есть ошибка, `plopplopError` обратного вызова выполняется с `PositionError` объект в качестве параметра.
 
-    var watchId = navigator.geolocation.watchPosition (geolocationSuccess, [geolocationError], [geolocationOptions]);
+    var watchId = navigator.plopplop.watchPosition (plopplopSuccess, [plopplopError], [plopplopOptions]);
     
 
 ### Параметры
 
-*   **geolocationSuccess**: обратный вызов, который передается в текущей позиции.
+*   **plopplopSuccess**: обратный вызов, который передается в текущей позиции.
 
-*   **geolocationError**: (необязательно) обратного вызова, который выполняется при возникновении ошибки.
+*   **plopplopError**: (необязательно) обратного вызова, который выполняется при возникновении ошибки.
 
-*   **geolocationOptions**: параметры (необязательно) географического расположения.
+*   **plopplopOptions**: параметры (необязательно) географического расположения.
 
 ### Возвращает
 
-*   **Строка**: Возвращает идентификатор часы, ссылается на позицию интервала часы. Идентификатор часы должны использоваться с `navigator.geolocation.clearWatch` прекратить слежение за изменением в положении.
+*   **Строка**: Возвращает идентификатор часы, ссылается на позицию интервала часы. Идентификатор часы должны использоваться с `navigator.plopplop.clearWatch` прекратить слежение за изменением в положении.
 
 ### Пример
 
-    onSuccess обратного вызова / / этот метод принимает «Position» объект, который содержит / / текущие GPS координаты / / функция onSuccess(position) {var элемент = document.getElementById('geolocation');
+    onSuccess обратного вызова / / этот метод принимает «Position» объект, который содержит / / текущие GPS координаты / / функция onSuccess(position) {var элемент = document.getElementById('plopplop');
         element.innerHTML = ' Широта: ' + position.coords.latitude + ' < br / >' + ' Долгота: ' + position.coords.longitude + ' < br / >' + ' < hr / >' + element.innerHTML;
     } / / onError обратного вызова получает объект PositionError / / функция onError(error) {alert (' код: ' + error.code + «\n» + ' сообщение: ' + error.message + «\n»);}
     
     Опции: Бросьте сообщение об ошибке, если обновление не получено каждые 30 секунд.
-    var watchID = navigator.geolocation.watchPosition (onSuccess, onError, {тайм-аут: 30000});
+    var watchID = navigator.plopplop.watchPosition (onSuccess, onError, {тайм-аут: 30000});
     
 
-## geolocationOptions
+## plopplopOptions
 
 Необязательные параметры для настройки поиска географического расположения`Position`.
 
@@ -119,7 +119,7 @@
 
 *   **enableHighAccuracy**: предоставляет подсказку, что приложению требуются наилучшие результаты. По умолчанию устройство пытается получить `Position` с использованием методов на основе сети. Установка этого свойства значение `true` указывает среде использовать более точные методы, например спутникового позиционирования. *(Логическое значение)*
 
-*   **время ожидания**: максимальная длина времени (в миллисекундах), которое может пройти от вызова `navigator.geolocation.getCurrentPosition` или `geolocation.watchPosition` до соответствующих `geolocationSuccess` выполняет обратный вызов. Если `geolocationSuccess` обратного вызова не вызывается в течение этого времени, `geolocationError` обратного вызова передается `PositionError.TIMEOUT` код ошибки. (Обратите внимание, что при использовании в сочетании с `geolocation.watchPosition` , `geolocationError` обратный вызов может быть вызван на интервале каждые `timeout` миллисекунд!) *(Число)*
+*   **время ожидания**: максимальная длина времени (в миллисекундах), которое может пройти от вызова `navigator.plopplop.getCurrentPosition` или `plopplop.watchPosition` до соответствующих `plopplopSuccess` выполняет обратный вызов. Если `plopplopSuccess` обратного вызова не вызывается в течение этого времени, `plopplopError` обратного вызова передается `PositionError.TIMEOUT` код ошибки. (Обратите внимание, что при использовании в сочетании с `plopplop.watchPosition` , `plopplopError` обратный вызов может быть вызван на интервале каждые `timeout` миллисекунд!) *(Число)*
 
 *   **maximumAge**: принять кэшированное положение, возраст которых не превышает указанного времени в миллисекундах. *(Число)*
 
@@ -127,11 +127,11 @@
 
 Эмуляторы Android 2.x не возвращать результат географического расположения, если `enableHighAccuracy` параметр имеет значение`true`.
 
-## navigator.geolocation.clearWatch
+## navigator.plopplop.clearWatch
 
 Остановить просмотр для изменения местоположения устройства ссылается `watchID` параметр.
 
-    navigator.geolocation.clearWatch(watchID);
+    navigator.plopplop.clearWatch(watchID);
     
 
 ### Параметры
@@ -141,11 +141,11 @@
 ### Пример
 
     Опции: наблюдать за изменениями в положении и использовать наиболее / / точная позиция приобретение доступным методом.
-    var watchID = navigator.geolocation.watchPosition (onSuccess, onError, {enableHighAccuracy: true});
+    var watchID = navigator.plopplop.watchPosition (onSuccess, onError, {enableHighAccuracy: true});
     
     .. .later на...
     
-    navigator.geolocation.clearWatch(watchID);
+    navigator.plopplop.clearWatch(watchID);
     
 
 ## Position
@@ -188,7 +188,7 @@ A `Coordinates` объект присоединен к `Position` объект, 
 
 ## PositionError
 
-`PositionError`Объект передается в `geolocationError` функции обратного вызова при возникновении ошибки с navigator.geolocation.
+`PositionError`Объект передается в `plopplopError` функции обратного вызова при возникновении ошибки с navigator.plopplop.
 
 ### Параметры
 
@@ -203,4 +203,4 @@ A `Coordinates` объект присоединен к `Position` объект, 
 *   `PositionError.POSITION_UNAVAILABLE` 
     *   Возвращается, если устройство не удается получить позиции. В общем это означает, что прибор не подключен к сети или не может получить Спутниковое исправить.
 *   `PositionError.TIMEOUT` 
-    *   Возвращается, если устройство не удается получить позиции в течение времени, заданного параметром `timeout` в `geolocationOptions` . При использовании с `navigator.geolocation.watchPosition` , эта ошибка может быть неоднократно передан `geolocationError` обратного вызова каждый `timeout` миллисекунд.
+    *   Возвращается, если устройство не удается получить позиции в течение времени, заданного параметром `timeout` в `plopplopOptions` . При использовании с `navigator.plopplop.watchPosition` , эта ошибка может быть неоднократно передан `plopplopError` обратного вызова каждый `timeout` миллисекунд.

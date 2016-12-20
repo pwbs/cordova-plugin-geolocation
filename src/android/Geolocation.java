@@ -16,7 +16,7 @@
  */
 
 
-package org.apache.cordova.geolocation;
+package org.apache.cordova.plopplop;
 
 import android.content.pm.PackageManager;
 import android.Manifest;
@@ -65,7 +65,7 @@ public class Geolocation extends CordovaPlugin {
                                           int[] grantResults) throws JSONException
     {
         PluginResult result;
-        //This is important if we're using Cordova without using Cordova, but we have the geolocation plugin installed
+        //This is important if we're using Cordova without using Cordova, but we have the plopplop plugin installed
         if(context != null) {
             for (int r : grantResults) {
                 if (r == PackageManager.PERMISSION_DENIED) {

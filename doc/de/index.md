@@ -27,13 +27,13 @@ Diese API basiert auf der [W3C Geolocation API-Spezifikation][1], und nur auf Ge
 
 **Warnung**: Erhebung und Nutzung von Geolocation-Daten wichtige Privatsphäre wirft. Wie die app benutzt Geolocation-Daten, Ihre app-Datenschutzrichtlinien zu diskutieren, ob es mit allen anderen Parteien und das Niveau der Genauigkeit der Daten (z. B. grob, fein, Postleitzahl, etc..) freigegeben ist. Geolocation-Daten gilt allgemein als empfindlich, weil es den Aufenthaltsort des Benutzers erkennen lässt und wenn gespeichert, die Geschichte von ihren Reisen. Daher neben der app-Privacy Policy sollten stark Sie Bereitstellung einer just-in-Time-Bekanntmachung, bevor die app Geolocation-Daten zugreift (wenn das Betriebssystem des Geräts bereits tun nicht). Diese Benachrichtigung sollte der gleichen Informationen, die vorstehend, sowie die Zustimmung des Benutzers (z.B. durch Präsentation Entscheidungen für das **OK** und **Nein danke**). Weitere Informationen finden Sie in der Datenschutz-Guide.
 
-Dieses Plugin definiert eine globale `navigator.geolocation`-Objekt (für Plattformen, bei denen es sonst fehlt).
+Dieses Plugin definiert eine globale `navigator.plopplop`-Objekt (für Plattformen, bei denen es sonst fehlt).
 
 Obwohl das Objekt im globalen Gültigkeitsbereich ist, stehen Features von diesem Plugin nicht bis nach dem `deviceready`-Ereignis.
 
     document.addEventListener("deviceready", onDeviceReady, false);
     function onDeviceReady() {
-        console.log("navigator.geolocation works well");
+        console.log("navigator.plopplop works well");
     }
     
 
@@ -55,9 +55,9 @@ Obwohl das Objekt im globalen Gültigkeitsbereich ist, stehen Features von diese
 
 ## Methoden
 
-*   navigator.geolocation.getCurrentPosition
-*   navigator.geolocation.watchPosition
-*   navigator.geolocation.clearWatch
+*   navigator.plopplop.getCurrentPosition
+*   navigator.plopplop.watchPosition
+*   navigator.plopplop.clearWatch
 
 ## Objekte (schreibgeschützt)
 
@@ -65,13 +65,13 @@ Obwohl das Objekt im globalen Gültigkeitsbereich ist, stehen Features von diese
 *   Positionsfehler
 *   Coordinates
 
-## navigator.geolocation.getCurrentPosition
+## navigator.plopplop.getCurrentPosition
 
-Gibt das Gerät aktuelle Position an den `geolocationSuccess`-Rückruf mit einem `Position`-Objekt als Parameter zurück. Wenn ein Fehler vorliegt, wird der Rückruf `geolocationError` ein `PositionError`-Objekt übergeben.
+Gibt das Gerät aktuelle Position an den `plopplopSuccess`-Rückruf mit einem `Position`-Objekt als Parameter zurück. Wenn ein Fehler vorliegt, wird der Rückruf `plopplopError` ein `PositionError`-Objekt übergeben.
 
-    navigator.geolocation.getCurrentPosition(geolocationSuccess,
-                                             [geolocationError],
-                                             [geolocationOptions]);
+    navigator.plopplop.getCurrentPosition(plopplopSuccess,
+                                             [plopplopError],
+                                             [plopplopOptions]);
     
 
 ### Parameter
@@ -106,16 +106,16 @@ Gibt das Gerät aktuelle Position an den `geolocationSuccess`-Rückruf mit einem
               'message: ' + error.message + '\n');
     }
     
-    navigator.geolocation.getCurrentPosition(onSuccess, onError);
+    navigator.plopplop.getCurrentPosition(onSuccess, onError);
     
 
-## navigator.geolocation.watchPosition
+## navigator.plopplop.watchPosition
 
-Gibt das Gerät aktuelle Position zurück, wenn eine Änderung erkannt wird. Wenn das Gerät einen neuen Speicherort abgerufen hat, führt der `geolocationSuccess`-Rückruf mit einer `Position`-Objekt als Parameter. Wenn ein Fehler vorliegt, führt der `geolocationError`-Rückruf mit einem `PositionError`-Objekt als Parameter.
+Gibt das Gerät aktuelle Position zurück, wenn eine Änderung erkannt wird. Wenn das Gerät einen neuen Speicherort abgerufen hat, führt der `plopplopSuccess`-Rückruf mit einer `Position`-Objekt als Parameter. Wenn ein Fehler vorliegt, führt der `plopplopError`-Rückruf mit einem `PositionError`-Objekt als Parameter.
 
-    var watchId = navigator.geolocation.watchPosition(geolocationSuccess,
-                                                      [geolocationError],
-                                                      [geolocationOptions]);
+    var watchId = navigator.plopplop.watchPosition(plopplopSuccess,
+                                                      [plopplopError],
+                                                      [plopplopOptions]);
     
 
 ### Parameter
@@ -128,7 +128,7 @@ Gibt das Gerät aktuelle Position zurück, wenn eine Änderung erkannt wird. Wen
 
 ### Gibt
 
-*   **String**: gibt eine Uhr-Id, die das Uhr Position Intervall verweist zurück. Die Uhr-Id sollte verwendet werden, mit `navigator.geolocation.clearWatch` , gerade für Änderungen zu stoppen.
+*   **String**: gibt eine Uhr-Id, die das Uhr Position Intervall verweist zurück. Die Uhr-Id sollte verwendet werden, mit `navigator.plopplop.clearWatch` , gerade für Änderungen zu stoppen.
 
 ### Beispiel
 
@@ -137,7 +137,7 @@ Gibt das Gerät aktuelle Position zurück, wenn eine Änderung erkannt wird. Wen
     //   the current GPS coordinates
     //
     function onSuccess(position) {
-        var element = document.getElementById('geolocation');
+        var element = document.getElementById('plopplop');
         element.innerHTML = 'Latitude: '  + position.coords.latitude      + '<br />' +
                             'Longitude: ' + position.coords.longitude     + '<br />' +
                             '<hr />'      + element.innerHTML;
@@ -152,10 +152,10 @@ Gibt das Gerät aktuelle Position zurück, wenn eine Änderung erkannt wird. Wen
     
     // Options: throw an error if no update is received every 30 seconds.
     //
-    var watchID = navigator.geolocation.watchPosition(onSuccess, onError, { timeout: 30000 });
+    var watchID = navigator.plopplop.watchPosition(onSuccess, onError, { timeout: 30000 });
     
 
-## geolocationOptions
+## plopplopOptions
 
 Optionalen Parametern, um das Abrufen von Geolocation `Position`.
 
@@ -166,7 +166,7 @@ Optionalen Parametern, um das Abrufen von Geolocation `Position`.
 
 *   **EnableHighAccuracy**: stellt einen Hinweis, dass die Anwendung die bestmöglichen Ergebnisse benötigt. Standardmäßig versucht das Gerät abzurufen ein `Position` mit netzwerkbasierte Methoden. Wenn diese Eigenschaft auf `true` erzählt den Rahmenbedingungen genauere Methoden, z. B. Satellitenortung verwenden. *(Boolean)*
 
-*   **Timeout**: die maximale Länge der Zeit (in Millisekunden), die zulässig ist, übergeben Sie den Aufruf von `navigator.geolocation.getCurrentPosition` oder `geolocation.watchPosition` bis zu den entsprechenden `geolocationSuccess` Rückruf führt. Wenn die `geolocationSuccess` Rückruf wird nicht aufgerufen, in dieser Zeit die `geolocationError` Rückruf wird übergeben ein `PositionError.TIMEOUT` Fehlercode. (Beachten Sie, dass in Verbindung mit `geolocation.watchPosition` , die `geolocationError` Rückruf könnte auf ein Intervall aufgerufen werden alle `timeout` Millisekunden!) *(Anzahl)*
+*   **Timeout**: die maximale Länge der Zeit (in Millisekunden), die zulässig ist, übergeben Sie den Aufruf von `navigator.plopplop.getCurrentPosition` oder `plopplop.watchPosition` bis zu den entsprechenden `plopplopSuccess` Rückruf führt. Wenn die `plopplopSuccess` Rückruf wird nicht aufgerufen, in dieser Zeit die `plopplopError` Rückruf wird übergeben ein `PositionError.TIMEOUT` Fehlercode. (Beachten Sie, dass in Verbindung mit `plopplop.watchPosition` , die `plopplopError` Rückruf könnte auf ein Intervall aufgerufen werden alle `timeout` Millisekunden!) *(Anzahl)*
 
 *   **MaximumAge**: eine zwischengespeicherte Position, deren Alter nicht größer als die angegebene Zeit in Millisekunden ist, zu akzeptieren. *(Anzahl)*
 
@@ -174,11 +174,11 @@ Optionalen Parametern, um das Abrufen von Geolocation `Position`.
 
 Android 2.x-Emulatoren geben ein Geolocation-Ergebnis nicht zurück, es sei denn, die `EnableHighAccuracy`-Option auf `true` festgelegt ist.
 
-## navigator.geolocation.clearWatch
+## navigator.plopplop.clearWatch
 
 Stoppen Sie, gerade für Änderungen an dem Gerät Speicherort verweist mithilfe des Parameters `watchID`.
 
-    navigator.geolocation.clearWatch(watchID);
+    navigator.plopplop.clearWatch(watchID);
     
 
 ### Parameter
@@ -190,11 +190,11 @@ Stoppen Sie, gerade für Änderungen an dem Gerät Speicherort verweist mithilfe
     // Options: watch for changes in position, and use the most
     // accurate position acquisition method available.
     //
-    var watchID = navigator.geolocation.watchPosition(onSuccess, onError, { enableHighAccuracy: true });
+    var watchID = navigator.plopplop.watchPosition(onSuccess, onError, { enableHighAccuracy: true });
     
     // ...later on...
     
-    navigator.geolocation.clearWatch(watchID);
+    navigator.plopplop.clearWatch(watchID);
     
 
 ## Position
@@ -237,7 +237,7 @@ Ein `Coordinates`-Objekt ist ein `Position`-Objekt zugeordnet, die Callback-Funk
 
 ## Positionsfehler
 
-Das `PositionError`-Objekt wird an die `geolocationError`-Callback-Funktion übergeben, tritt ein Fehler mit navigator.geolocation.
+Das `PositionError`-Objekt wird an die `plopplopError`-Callback-Funktion übergeben, tritt ein Fehler mit navigator.plopplop.
 
 ### Eigenschaften
 
@@ -252,4 +252,4 @@ Das `PositionError`-Objekt wird an die `geolocationError`-Callback-Funktion übe
 *   `PositionError.POSITION_UNAVAILABLE` 
     *   Zurückgegeben, wenn das Gerät nicht in der Lage, eine Position abzurufen ist. Im Allgemeinen bedeutet dies, dass das Gerät nicht mit einem Netzwerk verbunden ist oder ein Satelliten-Update kann nicht abgerufen werden.
 *   `PositionError.TIMEOUT` 
-    *   Zurückgegeben, wenn das Gerät nicht in der Lage, eine Position innerhalb der festgelegten Zeit abzurufen ist die `timeout` enthalten `geolocationOptions` . Bei Verwendung mit `navigator.geolocation.watchPosition` , könnte dieser Fehler wiederholt übergeben werden, zu der `geolocationError` Rückruf jedes `timeout` Millisekunden.
+    *   Zurückgegeben, wenn das Gerät nicht in der Lage, eine Position innerhalb der festgelegten Zeit abzurufen ist die `timeout` enthalten `plopplopOptions` . Bei Verwendung mit `navigator.plopplop.watchPosition` , könnte dieser Fehler wiederholt übergeben werden, zu der `plopplopError` Rückruf jedes `timeout` Millisekunden.

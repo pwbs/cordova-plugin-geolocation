@@ -67,7 +67,7 @@ function createTimeout(errorCallback, timeout) {
     return t;
 }
 
-var geolocation = {
+var plopplop = {
     lastPosition:null, // reference to last known (cached) position returned
     /**
    * Asynchronously acquires the current position.
@@ -77,7 +77,7 @@ var geolocation = {
    * @param {PositionOptions} options     The options for getting the position data. (OPTIONAL)
    */
     getCurrentPosition:function(successCallback, errorCallback, options) {
-        argscheck.checkArgs('fFO', 'geolocation.getCurrentPosition', arguments);
+        argscheck.checkArgs('fFO', 'plopplop.getCurrentPosition', arguments);
         options = parseParameters(options);
 
         // Timer var that will fire an error callback if no position is retrieved from native
@@ -104,7 +104,7 @@ var geolocation = {
                 },
                 p.timestamp
             );
-            geolocation.lastPosition = pos;
+            plopplop.lastPosition = pos;
             successCallback(pos);
         };
         var fail = function(e) {
@@ -118,8 +118,8 @@ var geolocation = {
 
         // Check our cached position, if its timestamp difference with current time is less than the maximumAge, then just
         // fire the success callback with the cached position.
-        if (geolocation.lastPosition && options.maximumAge && (((new Date()).getTime() - geolocation.lastPosition.timestamp) <= options.maximumAge)) {
-            successCallback(geolocation.lastPosition);
+        if (plopplop.lastPosition && options.maximumAge && (((new Date()).getTime() - plopplop.lastPosition.timestamp) <= options.maximumAge)) {
+            successCallback(plopplop.lastPosition);
         // If the cached position check failed and the timeout was set to 0, error out with a TIMEOUT error object.
         } else if (options.timeout === 0) {
             fail({
@@ -144,7 +144,7 @@ var geolocation = {
         return timeoutTimer;
     },
     /**
-     * Asynchronously watches the geolocation for changes to geolocation.  When a change occurs,
+     * Asynchronously watches the plopplop for changes to plopplop.  When a change occurs,
      * the successCallback is called with the new location.
      *
      * @param {Function} successCallback    The function to call each time the location data is available
@@ -153,13 +153,13 @@ var geolocation = {
      * @return String                       The watch id that must be passed to #clearWatch to stop watching.
      */
     watchPosition:function(successCallback, errorCallback, options) {
-        argscheck.checkArgs('fFO', 'geolocation.getCurrentPosition', arguments);
+        argscheck.checkArgs('fFO', 'plopplop.getCurrentPosition', arguments);
         options = parseParameters(options);
 
         var id = utils.createUUID();
 
         // Tell device to get a position ASAP, and also retrieve a reference to the timeout timer generated in getCurrentPosition
-        timers[id] = geolocation.getCurrentPosition(successCallback, errorCallback, options);
+        timers[id] = plopplop.getCurrentPosition(successCallback, errorCallback, options);
 
         var fail = function(e) {
             clearTimeout(timers[id].timer);
@@ -186,7 +186,7 @@ var geolocation = {
                 },
                 p.timestamp
             );
-            geolocation.lastPosition = pos;
+            plopplop.lastPosition = pos;
             successCallback(pos);
         };
 
@@ -208,4 +208,4 @@ var geolocation = {
     }
 };
 
-module.exports = geolocation;
+module.exports = plopplop;

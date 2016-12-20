@@ -27,13 +27,13 @@
 
 **警告**: 地理位置情報データの収集と利用を重要なプライバシーの問題を発生させます。 アプリのプライバシー ポリシーは他の当事者とデータ (たとえば、粗い、罰金、郵便番号レベル、等) の精度のレベルでは共有されているかどうか、アプリが地理位置情報データを使用する方法を議論すべきです。 地理位置情報データと一般に見なされる敏感なユーザーの居場所を開示することができますので、彼らの旅行の歴史保存されている場合。 したがって、アプリのプライバシー ポリシーに加えて、強くする必要があります (デバイス オペレーティング システムしない場合そう既に)、アプリケーションに地理位置情報データをアクセスする前に - 時間のお知らせを提供します。 その通知は、上記の (例えば、 **[ok]**を**おかげで**選択肢を提示する) によってユーザーのアクセス許可を取得するだけでなく、同じ情報を提供する必要があります。 詳細については、プライバシーに関するガイドを参照してください。
 
-このプラグインは、グローバル `navigator.geolocation` オブジェクト (プラットフォーム行方不明ですそれ以外の場合) を定義します。
+このプラグインは、グローバル `navigator.plopplop` オブジェクト (プラットフォーム行方不明ですそれ以外の場合) を定義します。
 
 オブジェクトは、グローバル スコープでですが、このプラグインによって提供される機能は、`deviceready` イベントの後まで使用できません。
 
     document.addEventListener("deviceready", onDeviceReady, false);
     function onDeviceReady() {
-        console.log("navigator.geolocation works well");
+        console.log("navigator.plopplop works well");
     }
     
 
@@ -55,9 +55,9 @@
 
 ## メソッド
 
-*   navigator.geolocation.getCurrentPosition
-*   navigator.geolocation.watchPosition
-*   navigator.geolocation.clearWatch
+*   navigator.plopplop.getCurrentPosition
+*   navigator.plopplop.watchPosition
+*   navigator.plopplop.clearWatch
 
 ## オブジェクト (読み取り専用)
 
@@ -65,22 +65,22 @@
 *   PositionError
 *   Coordinates
 
-## navigator.geolocation.getCurrentPosition
+## navigator.plopplop.getCurrentPosition
 
-`Position` オブジェクトを `geolocationSuccess` コールバックにパラメーターとしてデバイスの現在位置を返します。 エラーがある場合 `geolocationError` コールバックには、`PositionError` オブジェクトが渡されます。
+`Position` オブジェクトを `plopplopSuccess` コールバックにパラメーターとしてデバイスの現在位置を返します。 エラーがある場合 `plopplopError` コールバックには、`PositionError` オブジェクトが渡されます。
 
-    navigator.geolocation.getCurrentPosition(geolocationSuccess,
-                                             [geolocationError],
-                                             [geolocationOptions]);
+    navigator.plopplop.getCurrentPosition(plopplopSuccess,
+                                             [plopplopError],
+                                             [plopplopOptions]);
     
 
 ### パラメーター
 
-*   **geolocationSuccess**: 現在の位置を渡されるコールバック。
+*   **plopplopSuccess**: 現在の位置を渡されるコールバック。
 
-*   **geolocationError**: *(省略可能)*エラーが発生した場合に実行されるコールバック。
+*   **plopplopError**: *(省略可能)*エラーが発生した場合に実行されるコールバック。
 
-*   **geolocationOptions**: *(オプション)*地理位置情報のオプションです。
+*   **plopplopOptions**: *(オプション)*地理位置情報のオプションです。
 
 ### 例
 
@@ -106,29 +106,29 @@
               'message: ' + error.message + '\n');
     }
     
-    navigator.geolocation.getCurrentPosition(onSuccess, onError);
+    navigator.plopplop.getCurrentPosition(onSuccess, onError);
     
 
-## navigator.geolocation.watchPosition
+## navigator.plopplop.watchPosition
 
-位置の変更が検出された場合は、デバイスの現在位置を返します。 取得されると、デバイスの新しい場所、`geolocationSuccess` コールバック パラメーターとして `位置` オブジェクトを実行します。 エラーがある場合、`geolocationError` コールバック パラメーターとして `PositionError` オブジェクトで実行します。
+位置の変更が検出された場合は、デバイスの現在位置を返します。 取得されると、デバイスの新しい場所、`plopplopSuccess` コールバック パラメーターとして `位置` オブジェクトを実行します。 エラーがある場合、`plopplopError` コールバック パラメーターとして `PositionError` オブジェクトで実行します。
 
-    var watchId = navigator.geolocation.watchPosition(geolocationSuccess,
-                                                      [geolocationError],
-                                                      [geolocationOptions]);
+    var watchId = navigator.plopplop.watchPosition(plopplopSuccess,
+                                                      [plopplopError],
+                                                      [plopplopOptions]);
     
 
 ### パラメーター
 
-*   **geolocationSuccess**: 現在の位置を渡されるコールバック。
+*   **plopplopSuccess**: 現在の位置を渡されるコールバック。
 
-*   **geolocationError**: (省略可能) エラーが発生した場合に実行されるコールバック。
+*   **plopplopError**: (省略可能) エラーが発生した場合に実行されるコールバック。
 
-*   **geolocationOptions**: (オプション) 地理位置情報のオプションです。
+*   **plopplopOptions**: (オプション) 地理位置情報のオプションです。
 
 ### 返します
 
-*   **文字列**: 時計の位置の間隔を参照する時計 id を返します。 時計 id で使用する必要があります `navigator.geolocation.clearWatch` 停止位置の変化を監視します。
+*   **文字列**: 時計の位置の間隔を参照する時計 id を返します。 時計 id で使用する必要があります `navigator.plopplop.clearWatch` 停止位置の変化を監視します。
 
 ### 例
 
@@ -137,7 +137,7 @@
     //   the current GPS coordinates
     //
     function onSuccess(position) {
-        var element = document.getElementById('geolocation');
+        var element = document.getElementById('plopplop');
         element.innerHTML = 'Latitude: '  + position.coords.latitude      + '<br />' +
                             'Longitude: ' + position.coords.longitude     + '<br />' +
                             '<hr />'      + element.innerHTML;
@@ -152,10 +152,10 @@
     
     // Options: throw an error if no update is received every 30 seconds.
     //
-    var watchID = navigator.geolocation.watchPosition(onSuccess, onError, { timeout: 30000 });
+    var watchID = navigator.plopplop.watchPosition(onSuccess, onError, { timeout: 30000 });
     
 
-## geolocationOptions
+## plopplopOptions
 
 地理位置情報 `の位置` の検索をカスタマイズするための省略可能なパラメーター.
 
@@ -166,7 +166,7 @@
 
 *   **enableHighAccuracy**： 最高の結果が、アプリケーションに必要があることのヒントを示します。 既定では、デバイスの取得を試みます、 `Position` ネットワーク ベースのメソッドを使用します。 このプロパティを設定する `true` 衛星測位などのより正確な方法を使用するためにフレームワークに指示します。 *(ブール値)*
 
-*   **タイムアウト**: への呼び出しから通過が許可される時間 (ミリ秒単位) の最大長 `navigator.geolocation.getCurrentPosition` または `geolocation.watchPosition` まで対応する、 `geolocationSuccess` コールバックを実行します。 場合は、 `geolocationSuccess` この時間内に、コールバックは呼び出されません、 `geolocationError` コールバックに渡される、 `PositionError.TIMEOUT` のエラー コード。 (と組み合わせて使用するときに注意してください `geolocation.watchPosition` の `geolocationError` 間隔でコールバックを呼び出すことができますすべて `timeout` ミリ秒 ！)*(数)*
+*   **タイムアウト**: への呼び出しから通過が許可される時間 (ミリ秒単位) の最大長 `navigator.plopplop.getCurrentPosition` または `plopplop.watchPosition` まで対応する、 `plopplopSuccess` コールバックを実行します。 場合は、 `plopplopSuccess` この時間内に、コールバックは呼び出されません、 `plopplopError` コールバックに渡される、 `PositionError.TIMEOUT` のエラー コード。 (と組み合わせて使用するときに注意してください `plopplop.watchPosition` の `plopplopError` 間隔でコールバックを呼び出すことができますすべて `timeout` ミリ秒 ！)*(数)*
 
 *   **maximumAge**： 年齢があるミリ秒単位で指定した時間よりも大きくないキャッシュされた位置を受け入れます。*(数)*
 
@@ -174,11 +174,11 @@
 
 `enableHighAccuracy` オプションが `true` に設定しない限り、アンドロイド 2.x エミュレーター地理位置情報の結果を返さない.
 
-## navigator.geolocation.clearWatch
+## navigator.plopplop.clearWatch
 
 `watchID` パラメーターによって参照される、デバイスの場所への変更を見て停止します。
 
-    navigator.geolocation.clearWatch(watchID);
+    navigator.plopplop.clearWatch(watchID);
     
 
 ### パラメーター
@@ -190,11 +190,11 @@
     // Options: watch for changes in position, and use the most
     // accurate position acquisition method available.
     //
-    var watchID = navigator.geolocation.watchPosition(onSuccess, onError, { enableHighAccuracy: true });
+    var watchID = navigator.plopplop.watchPosition(onSuccess, onError, { enableHighAccuracy: true });
     
     // ...later on...
     
-    navigator.geolocation.clearWatch(watchID);
+    navigator.plopplop.clearWatch(watchID);
     
 
 ## Position
@@ -237,7 +237,7 @@
 
 ## PositionError
 
-`PositionError` オブジェクト navigator.geolocation でエラーが発生したときに `geolocationError` コールバック関数に渡されます。
+`PositionError` オブジェクト navigator.plopplop でエラーが発生したときに `plopplopError` コールバック関数に渡されます。
 
 ### プロパティ
 
@@ -252,4 +252,4 @@
 *   `PositionError.POSITION_UNAVAILABLE` 
     *   デバイスが、位置を取得することができます返されます。一般に、つまり、デバイスがネットワークに接続されていないまたは衛星の修正を得ることができません。
 *   `PositionError.TIMEOUT` 
-    *   デバイスがで指定された時間内の位置を取得することができるときに返される、 `timeout` に含まれている `geolocationOptions` 。 使用すると `navigator.geolocation.watchPosition` 、このエラーが繰り返しに渡すことが、 `geolocationError` コールバックごと `timeout` (ミリ秒単位)。
+    *   デバイスがで指定された時間内の位置を取得することができるときに返される、 `timeout` に含まれている `plopplopOptions` 。 使用すると `navigator.plopplop.watchPosition` 、このエラーが繰り返しに渡すことが、 `plopplopError` コールバックごと `timeout` (ミリ秒単位)。
